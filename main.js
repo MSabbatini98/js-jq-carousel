@@ -1,6 +1,21 @@
 // ******* Programma principale
 $(function() {
+    // ! uso delle arrows
+    $(document).keypress(
+        function(e) {    
+            // right arrow
+            if (e.keyCode == 39) {      
+                $(".nav > i:focus ").next().focus();
+                
+            // left arrow
+            } else  if (e.keyCode == 37) {      
+                $(".nav > i:focus ").prev().focus();
+            }
+        }
+    )    
+    
     // ! al click del mouse su prev
+    
     $("#prev").click(
         function() {
             prevImage();
@@ -16,6 +31,7 @@ $(function() {
         }
     )
 });
+
 
 // ******* Funzioni utilizzate
 
@@ -77,4 +93,52 @@ function nextDot() {
 function firstLastColor(){
     $("this").addClass("first_last_color");
 }
+
+$(function() {
+    // ! uso delle arrows
+    $(document).keypress(
+        function(e) {    
+            // right arrow
+            if (e.keyCode == 39) {      
+                $(".nav > i:focus ").next().focus();
+                nextClick();
+                
+            // left arrow
+            } else  if (e.keyCode == 37) {      
+                $(".nav > i:focus ").prev().focus();
+                prevClick();
+            }
+        }
+    )    
+    
+    
+    
+
+});
+
+
+// ******* Funzioni utilizzate
+// ! va all'immagine e puntino successivo
+function nextClick (){
+    // ! al click del mouse su next
+    $("#next").click(
+        function() {
+            nextImage();
+            nextDot();
+        }
+    ) 
+}
+
+// ! va all'immagine e puntino precedente
+function prevClick (){
+    // ! al click del mouse su prev
+    $("#prev").click(
+        function() {
+            prevImage();
+            prevDot();
+        }
+    );
+   
+}
+
 */
