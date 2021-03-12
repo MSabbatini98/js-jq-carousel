@@ -79,7 +79,7 @@ function prevDot() {
     dot_active.removeClass("active");
 
     if (dot_active.hasClass("first") == true) {
-        $('.nav .fas.last').addClass("active");
+        $('.nav .far.last').addClass("active");
     } else {
         dot_active.prev().addClass("active");
     }
@@ -93,7 +93,7 @@ function nextDot() {
     dot_active.removeClass("active");
     
     if (dot_active.hasClass("last") == true) {
-        $('.nav .fas.first').addClass("active");
+        $('.nav .far.first').addClass("active");
     } else {
         dot_active.next().addClass("active");
     }
