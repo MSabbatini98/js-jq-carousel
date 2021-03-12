@@ -1,21 +1,25 @@
 // ******* Programma principale
 $(function() {
+
     // ! uso delle arrows
-    $(document).keypress(
+    $(document).keydown(
         function(e) {    
             // right arrow
-            if (e.keyCode == 39) {      
-                $(".nav > i:focus ").next().focus();
+            if (e.keyCode == 39) {  
+                console.log("right arrow");    
+                nextImage();
+                nextDot();
                 
             // left arrow
             } else  if (e.keyCode == 37) {      
-                $(".nav > i:focus ").prev().focus();
+                console.log("left arrow");    
+                prevImage();
+                prevDot();
             }
         }
     )    
     
     // ! al click del mouse su prev
-    
     $("#prev").click(
         function() {
             prevImage();
@@ -30,46 +34,52 @@ $(function() {
             nextDot();
         }
     )
+
+    // al click del mouse sulle icone
+    // $(".nav i").click(
+    //     function
+    // )
 });
 
+// creo una funzione che conta le immagini e inserisce tanti punti quanti il numero di immagini, salvate in un array
 
 // ******* Funzioni utilizzate
 
 // ! va all'immagine precdente
-function prevImage () {
+function prevImage() {
     var img_active = $('.images img.active');
     
     img_active.removeClass("active");
     
     if (img_active.hasClass("first") == true) {
-        $('.images img.first').addClass("active");
+        $('.images img.last').addClass("active");
     } else {
         img_active.prev().addClass("active");
     }
 }
 
 // ! va all'immagine successiva
-function nextImage () {
+function nextImage() {
     
     var img_active = $('.images img.active');
     
     img_active.removeClass("active");
     
     if (img_active.hasClass("last") == true) {
-        $('.images img.last').addClass("active");
+        $('.images img.first').addClass("active");
     } else {
         img_active.next().addClass("active");
     }
 }
 // ! va al pallino precedente
-function prevDot () {
+function prevDot() {
     
     var dot_active = $('.nav > i.active');
 
     dot_active.removeClass("active");
 
     if (dot_active.hasClass("first") == true) {
-        $('nav .fas.first').addClass("active");
+        $('.nav .fas.last').addClass("active");
     } else {
         dot_active.prev().addClass("active");
     }
@@ -79,16 +89,19 @@ function prevDot () {
 function nextDot() {
     
     var dot_active = $('.nav > i.active');
-    console.log(dot_active);
     
     dot_active.removeClass("active");
     
     if (dot_active.hasClass("last") == true) {
-        $('nav fas.last').addClass("active");
+        $('.nav .fas.first').addClass("active");
     } else {
         dot_active.next().addClass("active");
     }
+    console.log(dot_active);
+
 }
+
+
 /*
 function firstLastColor(){
     $("this").addClass("first_last_color");

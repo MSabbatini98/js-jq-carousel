@@ -57,7 +57,7 @@
 .nav > i.active {
     color: blue;
 }
-.nav > i:focus {
+.nav > i:hover {
     color: purple;
 }
 
