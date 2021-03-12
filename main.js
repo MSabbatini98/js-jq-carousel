@@ -1,0 +1,80 @@
+// ******* Programma principale
+$(function() {
+    // ! al click del mouse su prev
+    $("#prev").click(
+        function() {
+            prevImage();
+            prevDot();
+        }
+    )
+
+    // ! al click del mouse su next
+    $("#next").click(
+        function() {
+            nextImage();
+            nextDot();
+        }
+    )
+});
+
+// ******* Funzioni utilizzate
+
+// ! va all'immagine precdente
+function prevImage () {
+    var img_active = $('.images img.active');
+    
+    img_active.removeClass("active");
+    
+    if (img_active.hasClass("first") == true) {
+        $('.images img.first').addClass("active");
+    } else {
+        img_active.prev().addClass("active");
+    }
+}
+
+// ! va all'immagine successiva
+function nextImage () {
+    
+    var img_active = $('.images img.active');
+    
+    img_active.removeClass("active");
+    
+    if (img_active.hasClass("last") == true) {
+        $('.images img.last').addClass("active");
+    } else {
+        img_active.next().addClass("active");
+    }
+}
+// ! va al pallino precedente
+function prevDot () {
+    
+    var dot_active = $('.nav > i.active');
+
+    dot_active.removeClass("active");
+
+    if (dot_active.hasClass("first") == true) {
+        $('nav .fas.first').addClass("active");
+    } else {
+        dot_active.prev().addClass("active");
+    }
+}
+
+// ! va al pallino successivo
+function nextDot() {
+    
+    var dot_active = $('.nav > i.active');
+    console.log(dot_active);
+    
+    dot_active.removeClass("active");
+    
+    if (dot_active.hasClass("last") == true) {
+        $('nav fas.last').addClass("active");
+    } else {
+        dot_active.next().addClass("active");
+    }
+}
+/*
+function firstLastColor(){
+    $("this").addClass("first_last_color");
+}
+*/
